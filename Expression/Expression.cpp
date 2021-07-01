@@ -1,4 +1,5 @@
-﻿#include <iostream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -7,18 +8,19 @@ char sign[25];
 int S, N;
 void input()
 {
-    cin >> N >> S;
-    if (N < 2 || N > 25)
-        cout << "No solution";
+    ifstream fromfile("C:\\Users\\King\\source\\repos\\Expression\\input.txt");
+    fromfile >> N >> S;
     for (int i = 0; i < N; i++)
-        cin >> X[i];
+        fromfile >> X[i];
+    fromfile.close();
 }
 void output()
 {
-    cout << X[0];
+    ofstream tofile("C:\\Users\\King\\source\\repos\\Expression\\output.txt", ios::trunc);
+    tofile << X[0];
     for (int i = 1; i < N; i++)
-        cout << sign[i] << X[i];
-    cout << "=" << S;
+        tofile << sign[i] << X[i];
+    tofile << "=" << S;
     exit(0);
 }
 
@@ -38,7 +40,9 @@ void rec(int Sum, int Index)
 void solution()
 {
     rec(X[0], 1);
-    cout << "No solution";
+    ofstream tofile("C:\\Users\\King\\source\\repos\\Expression\\output.txt", ios::trunc);
+    tofile << "No solution";
+    tofile.close();
 }
 int main()
 {

@@ -8,7 +8,7 @@ char sign[25];
 int S, N;
 void input()
 {
-    ifstream fromfile("C:\\Users\\King\\source\\repos\\Expression\\input.txt");
+    ifstream fromfile("..\\TestExpression\\input.txt");
     fromfile >> N >> S;
     for (int i = 0; i < N; i++)
         fromfile >> X[i];
@@ -16,11 +16,12 @@ void input()
 }
 void output()
 {
-    ofstream tofile("C:\\Users\\King\\source\\repos\\Expression\\output.txt", ios::trunc);
+    ofstream tofile("..\\Expression\\output.txt", ios::trunc);
     tofile << X[0];
     for (int i = 1; i < N; i++)
         tofile << sign[i] << X[i];
     tofile << "=" << S;
+    tofile.close();
     exit(0);
 }
 
@@ -40,7 +41,7 @@ void rec(int Sum, int Index)
 void solution()
 {
     rec(X[0], 1);
-    ofstream tofile("C:\\Users\\King\\source\\repos\\Expression\\output.txt", ios::trunc);
+    ofstream tofile("..\\Expression\\output.txt", ios::trunc);
     tofile << "No solution";
     tofile.close();
 }

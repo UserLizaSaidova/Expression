@@ -5,7 +5,8 @@ using namespace std;
 
 unsigned int X[25];
 char sign[25];
-int S, N;
+long int S;
+int N;
 void input()
 {
     ifstream fromfile("..\\TestExpression\\input.txt");
@@ -25,9 +26,9 @@ void output()
     exit(0);
 }
 
-void rec(int Sum, int Index)
+void rec(long int Sum, int Index)
 {
-    if (Sum == S) // ответ найден
+    if ((Sum == S) && (Index == N)) // ответ найден
         output();
     if (Index == N) // терминальное условие
         return;

@@ -15,7 +15,7 @@ bool test8();
 bool test9();
 bool test10();
 int testTask();
-std::string getResult(int n, int s, vector<unsigned int>arr);
+std::string getResult(int n, long int s, vector<unsigned int>arr);
 
 int main()
 {
@@ -52,10 +52,13 @@ bool test2() {//n=2
 }
 
 bool test3() {//n=24
-	int n = 24, s = 30;
-	vector<unsigned int>arr = { 1, 2, 5, 10, 15, 6, 7, 10, 24, 17, 18, 3,3,3,4,3,5,5,10,14,7,10,8,10 };
+	int n = 24;
+	long int s = 100000000;
+	vector<unsigned int>arr = { 50000000,50000000,50000000,50000000,50000000,50000000,
+	50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,
+	50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 };
 	string str = getResult(n, s, arr);
-	if (str == "1+2+5+10+15+6+7+10+24+17+18-3-3-3-4-3-5-5-10-14-7-10-8-10=30")
+	if (str == "50000000+50000000+50000000+50000000+50000000+50000000+50000000+50000000+50000000+50000000+50000000+50000000+50000000-50000000-50000000-50000000-50000000-50000000-50000000-50000000-50000000-50000000-50000000-50000000=100000000")
 		return true;
 	else
 		return false;
@@ -83,7 +86,8 @@ bool test5() {//s<0
 
 
 bool test6() {//s=-10^9
-	int n = 3, s = -10000000000;
+	int n = 3;
+	long int s = -10000000000;
 	vector<unsigned int>arr = { 7, 30, 8 };
 	string str = getResult(n, s, arr);
 	if (str == "No solution")
@@ -93,7 +97,8 @@ bool test6() {//s=-10^9
 }
 
 bool test7() {//s=10^9
-	int n = 20, s = 10000000000;
+	int n = 20;
+	long int s = 10000000000;
 	vector<unsigned int>arr = { 50000000,50000000,50000000,50000000,50000000,50000000,50000000,
 	50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,50000000 ,
 	50000000 ,50000000 };
@@ -146,7 +151,7 @@ int testTask()
 
 }
 
-string getResult(int n, int s, vector<unsigned int>arr)
+string getResult(int n, long int s, vector<unsigned int>arr)
 {
 	ofstream tofile("..\\TestExpression\\input.txt", ios::trunc);
 	tofile << n << ' ' << s << ' ';
